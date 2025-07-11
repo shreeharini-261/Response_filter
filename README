@@ -44,3 +44,19 @@ It uses **Marshmallow schemas** to serialize objects and control which fields ar
    @app.route('/admin/products')
    def admin_view():
        return PrivateSchema(many=True).dump(products)
+
+---
+
+## 📦 Example Output
+
+**Public View Response:**
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Shampoo",
+    "price": 120.0
+  }
+]
+
