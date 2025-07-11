@@ -12,8 +12,8 @@ This Flask API ensures that the data returned to clients is:
 - Clean and consistent
 - Role-based (different data views for public vs admin)
 
-It uses **Marshmallow schemas** to serialize objects and control which fields are included in responses.
 
+It uses **Marshmallow schemas** to serialize objects and control which fields are included in responses.
 ---
 
 ## 🌟 Key Features
