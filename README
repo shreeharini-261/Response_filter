@@ -1,0 +1,27 @@
+# Flask API Response Filtering with Marshmallow
+
+## Overview
+This API demonstrates secure response filtering using Marshmallow schemas to control exactly what data gets returned to different types of users.
+
+## Key Features
+- 🔒 **Automatic sensitive data hiding** (like cost prices)
+- 👥 **Different views for public vs admin users**
+- ✅ **Built-in request validation**
+- 🏷 **Consistent field naming and formatting**
+
+## How the Filtering Works
+1. **Two separate schemas** exist:
+   - `PublicSchema`: Only shows safe fields (ID, name, price)
+   - `PrivateSchema`: Shows all fields (including cost_price)
+
+2. **Routes automatically choose** the right schema:
+   ```python
+   # Public route
+   @app.route('/products')
+   def public_view():
+       return PublicSchema(many=True).dump(products)
+
+   # Admin route   
+   @app.route('/admin/products')
+   def admin_view():
+       return PrivateSchema(many=True).dump(products)
